@@ -16,16 +16,6 @@ const userMedia = navigator.mediaDevices.getUserMedia({
     //   min: 144,
     //   max: 480
     // },
-    // width: {
-    //   min: 144,
-    //   max: 480
-    // },
-    // height: {
-    //   min: 192,
-    //   max: 640
-    // },
-    width: 144,
-    height: 192,
     facingMode: 'environment' // facingMode: 'environment'(후면카메라) / 'user'(정면카메라)
   }
 })
