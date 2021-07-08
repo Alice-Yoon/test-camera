@@ -22,7 +22,8 @@ h1 {
 /* sections */
 .camera-section, 
 .prev-img-section {
-
+  max-width: 640px;
+  max-height: 480px;
 }
 .camera-section {
   display: flex;
