@@ -8,18 +8,16 @@ const outline = document.querySelector('#outline');
 const userMedia = navigator.mediaDevices.getUserMedia({
   audio: false,
   video: {
-    // width: {
-    //   min: 350,
-    //   max: 640
-    // },
-    // height: {
-    //   min: 196,
-    //   max: 480
-    // },
+    width: {
+      max: 640
+    },
+    height: {
+      max: 480
+    },
     // width: 350,
     // height: 196,
-    width: 640,
-    height: 480,
+    // width: 640,
+    // height: 480,
     facingMode: 'environment'
   }
 })
@@ -28,10 +26,23 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   userMedia.then(stream => {
     console.log("카메라 등장!")
     video.srcObject = stream;
+
+    const stream_settings = stream.getVideoTracks()[0].getSettings();
+    const stream_width = stream_settings.width;
+    const stream_height = stream_settings.height;
+    console.log("camera size-width??", stream_width)
+    console.log("camera size-height??", stream_height)
+
+    setCanvasSize(stream_width, stream_height);
   })
   .catch(err => {
     console.log(`${err.name} : ${err.message}`)
   })
+}
+
+function setCanvasSize(width, height) {
+  canvas.width = width;
+  canvas.height = height;
 }
 
 snapBtn.addEventListener('click', () => {
