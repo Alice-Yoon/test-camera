@@ -22,8 +22,8 @@ h1 {
 /* sections */
 .camera-section, 
 .prev-img-section {
-  width: 640px;
-  height: 480px;
+  /* width: 640px;
+  height: 480px; */
   /* width: 350px;
   height: 196px; */
 }
