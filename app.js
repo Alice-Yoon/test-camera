@@ -9,10 +9,12 @@ const userMedia = navigator.mediaDevices.getUserMedia({
   audio: false,
   video: {
     width: {
-      ideal: 640
+      min: 350,
+      max: 640
     },
     height: {
-      ideal: 480
+      min: 196,
+      max: 480
     },
     // width: 350,
     // height: 196,
@@ -21,6 +23,8 @@ const userMedia = navigator.mediaDevices.getUserMedia({
     facingMode: 'environment'
   }
 })
+
+// facingMode: 'environment'(후면카메라) / 'user'(정면카메라)
 
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   userMedia.then(stream => {
