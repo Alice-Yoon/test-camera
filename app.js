@@ -18,15 +18,18 @@ const userMedia = navigator.mediaDevices.getUserMedia({
 
 // facingMode: 'environment'(후면카메라) / 'user'(정면카메라)
 
+let stream_width;
+let stream_height;
+
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   userMedia.then(stream => {
     console.log("카메라 등장!")
     video.srcObject = stream;
 
-    // get stream size
+    // get stream size + set outline & canvas size
     const stream_settings = stream.getVideoTracks()[0].getSettings();
-    const stream_width = stream_settings.width;
-    const stream_height = stream_settings.height;
+    stream_width = stream_settings.width;
+    stream_height = stream_settings.height;
     setOutlineSize(stream_width, stream_height);
     setCanvasSize(stream_width, stream_height);
   })
@@ -53,7 +56,7 @@ function setCanvasSize(width, height) {
 
 snapBtn.addEventListener('click', () => {
   /// 1. 찍은 사진 미리보기
-  context.drawImage(video, 0, 0, 640, 480);
+  context.drawImage(video, 0, 0, stream_width, stream_height);
   /// 2.imageFile 추출
   const imageFile = dataURLtoFile(canvas.toDataURL('image/png'), 'imageTest.png');
   console.log("image::", imageFile)
