@@ -8,21 +8,14 @@ const outline = document.querySelector('#outline');
 const userMedia = navigator.mediaDevices.getUserMedia({
   audio: false,
   video: {
-    // width: {
-    //   max: 350
-    // },
-    // height: {
-    //   max: 196
-    // },
     // width: 350,
     // height: 196,
-    // width: 640,
-    // height: 480,
-    facingMode: 'environment'
+    width: 640,
+    height: 480,
+    facingMode: 'environment' // facingMode: 'environment'(후면카메라) / 'user'(정면카메라)
   }
 })
 
-// facingMode: 'environment'(후면카메라) / 'user'(정면카메라)
 
 let stream_width;
 let stream_height;
@@ -68,10 +61,15 @@ snapBtn.addEventListener('click', () => {
   console.log("image::", imageFile)
 })
 
+let degreeNum = 0;
+const degree = ['0', '90', '180', '270'];
 rotateBtn.addEventListener('click', () => {
-  outline.style.transform = 'rotate(90deg)';
-  rotateBtn.innerText = '90도';
-  console.log("rotateBtn!!")
+  degreeNum += 1;
+  if(degreeNum > 3) {
+    degreeNum = 0;
+  }
+  outline.style.transform = `rotate(${degree[degreeNum]}deg)`;
+  rotateBtn.innerText = `${degree[degreeNum]}도`;
 })
 
 
