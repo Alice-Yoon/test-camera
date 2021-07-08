@@ -8,16 +8,16 @@ const outline = document.querySelector('#outline');
 const userMedia = navigator.mediaDevices.getUserMedia({
   audio: false,
   video: {
-    width: {
-      max: 640
-    },
-    height: {
-      max: 480
-    },
+    // width: {
+    //   max: 640
+    // },
+    // height: {
+    //   max: 480
+    // },
     // width: 350,
     // height: 196,
-    // width: 640,
-    // height: 480,
+    width: 640,
+    height: 480,
     facingMode: 'environment'
   }
 })
