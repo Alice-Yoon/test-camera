@@ -8,12 +8,12 @@ const outline = document.querySelector('#outline');
 const userMedia = navigator.mediaDevices.getUserMedia({
   audio: false,
   video: {
-    width: {
-      max: 350
-    },
-    height: {
-      max: 196
-    },
+    // width: {
+    //   max: 350
+    // },
+    // height: {
+    //   max: 196
+    // },
     // width: 350,
     // height: 196,
     // width: 640,
