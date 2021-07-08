@@ -8,14 +8,16 @@ const outline = document.querySelector('#outline');
 const userMedia = navigator.mediaDevices.getUserMedia({
   audio: false,
   video: {
-    width: {
-      min: 192,
-      max: 640
-    },
-    height: {
-      min: 144,
-      max: 480
-    },
+    // width: {
+    //   min: 192,
+    //   max: 640
+    // },
+    // height: {
+    //   min: 144,
+    //   max: 480
+    // },
+    width: 640,
+    height: 480,
     facingMode: 'environment' // facingMode: 'environment'(후면카메라) / 'user'(정면카메라)
   }
 })
