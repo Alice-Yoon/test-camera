@@ -9,7 +9,7 @@ const userMedia = navigator.mediaDevices.getUserMedia({
   audio: false,
   video: {
     width: {
-      min: 250,
+      min: 350,
       max: 640
     },
     height: {
