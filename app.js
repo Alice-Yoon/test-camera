@@ -33,6 +33,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     console.log("camera size-width??", stream_width)
     console.log("camera size-height??", stream_height)
 
+    setOutlineSize(stream_width, stream_height);
     setCanvasSize(stream_width, stream_height);
   })
   .catch(err => {
@@ -40,7 +41,16 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   })
 }
 
+function setOutlineSize(width, height) {
+  if(width && height) {
+    outline.style.display = 'block';
+    outline.style.width = `${width/2}px`;
+    outline.style.height = `${height/1.5}px`;
+  }
+}
+
 function setCanvasSize(width, height) {
+  canvas.style.display = 'block';
   canvas.width = width;
   canvas.height = height;
 }
