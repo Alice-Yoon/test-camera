@@ -4,11 +4,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #fff;
 }
 
 h1 {
-  color: #fff;
   margin-bottom: 50px;
+}
+
+#width, #height {
+  color: red;
 }
 
 /* 전체 container */

@@ -16,8 +16,8 @@ const userMedia = navigator.mediaDevices.getUserMedia({
     //   min: 144,
     //   max: 480
     // },
-    width: 480,
-    height: 360,
+    // width: 480,
+    // height: 360,
     facingMode: 'environment' // facingMode: 'environment'(후면카메라) / 'user'(정면카메라)
   }
 })
@@ -40,10 +40,22 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     stream_height = stream_settings.height;
     setOutlineSize(stream_width, stream_height);
     setCanvasSize(stream_width, stream_height);
+
+    /// TEST ///
+    showSizeOnScreen();
   })
   .catch(err => {
     console.log(`${err.name} : ${err.message}`)
   })
+}
+
+console.log("stream_width::", stream_width);
+console.log("stream_height::", stream_height);
+
+/// TEST ///
+function showSizeOnScreen() {
+  document.querySelector('#width').innerHTML = stream_width;
+  document.querySelector('#height').innerHTML = stream_height;
 }
 
 ///////////////////////////
