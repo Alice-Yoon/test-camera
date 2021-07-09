@@ -26,6 +26,9 @@ const userMedia = navigator.mediaDevices.getUserMedia({
 let stream_width;
 let stream_height;
 
+////////////////////////////////////
+///// 유저 카메라 접근 & video로 송출 ////
+////////////////////////////////////
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   userMedia.then(stream => {
     console.log("카메라 등장!")
@@ -43,6 +46,9 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   })
 }
 
+///////////////////////////
+///// outline size 세팅 ////
+///////////////////////////
 function setOutlineSize(width, height) {
   if(width && height) {
     outline.style.display = 'block';
@@ -51,6 +57,9 @@ function setOutlineSize(width, height) {
   }
 }
 
+///////////////////////////
+///// 찍힌 사진 size 세팅 ////
+///////////////////////////
 function setCanvasSize(width, height) {
   if(width && height) {
     canvas.style.display = 'block';
@@ -59,6 +68,9 @@ function setCanvasSize(width, height) {
   }
 }
 
+//////////////////
+///// 사진찍기 /////
+//////////////////
 snapBtn.addEventListener('click', () => {
   /// 1. 찍은 사진 미리보기
   context.drawImage(video, 0, 0, stream_width, stream_height);
@@ -67,6 +79,9 @@ snapBtn.addEventListener('click', () => {
   console.log("image::", imageFile)
 })
 
+//////////////////////////
+///// rotate outline /////
+//////////////////////////
 let degreeNum = 0;
 const degree = ['0', '90', '180', '270'];
 rotateBtn.addEventListener('click', () => {
