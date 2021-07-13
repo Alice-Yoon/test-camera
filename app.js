@@ -44,8 +44,6 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     setCanvasSize(stream_width, stream_height);
 
     /// TEST ///
-    video.videoWidth = stream_width;
-    video.videoHeight = stream_height;
     showSizeOnScreen();
   })
   .catch(err => {
@@ -56,7 +54,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 /// TEST ///
 function showSizeOnScreen() {
   document.querySelector('#width').innerHTML = `stream-${stream_width} / video-${video.videoWidth}`;
-  document.querySelector('#height').innerHTML = stream_height;
+  document.querySelector('#height').innerHTML = `stream-${stream_height} / video-${video.videoWidth}`;
 }
 
 ///////////////////////////
@@ -78,8 +76,6 @@ function setCanvasSize(width, height) {
     canvas.style.display = 'block';
     canvas.width = width;
     canvas.height = height;
-    // canvas.width = height;
-    // canvas.height = width;
   }
 }
 
@@ -88,7 +84,10 @@ function setCanvasSize(width, height) {
 //////////////////
 snapBtn.addEventListener('click', () => {
   /// 1. 찍은 사진 미리보기
-  context.drawImage(video, 0, 0, stream_width, stream_height);
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  // context.drawImage(video, 0, 0, stream_width, stream_height);
   /// 2.imageFile 추출
   const imageFile = dataURLtoFile(canvas.toDataURL('image/png'), 'imageTest.png');
   console.log("image::", imageFile)
