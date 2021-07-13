@@ -69,12 +69,12 @@ h1 {
   padding: 30px;
   text-align: center;
 }
-#snapBtn {
-}
 
 /* outline */
 #rotateBtn {
-  background-color: lightgrey;
+  border: 1px solid lightgray;
+  background-color: transparent;
+  color: #fff;
   margin-bottom: 10px;
 }
 #outline {
