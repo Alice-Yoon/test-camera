@@ -16,8 +16,8 @@ const userMedia = navigator.mediaDevices.getUserMedia({
     //   min: 144,
     //   max: 480
     // },
-    // width: 480,
-    // height: 360,
+    width: 480,
+    height: 360,
     facingMode: 'environment' // facingMode: 'environment'(후면카메라) / 'user'(정면카메라)
   }
 })
@@ -75,10 +75,10 @@ function setOutlineSize(width, height) {
 function setCanvasSize(width, height) {
   if(width && height) {
     canvas.style.display = 'block';
-    canvas.width = height;
-    canvas.height = width;
-    // canvas.width = width;
-    // canvas.height = height;
+    canvas.width = width;
+    canvas.height = height;
+    // canvas.width = height;
+    // canvas.height = width;
   }
 }
 
