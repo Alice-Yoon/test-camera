@@ -64,11 +64,6 @@ h1 {
   margin-top: 30px;
 }
 
-#notify {
-  font-weight: bold;
-  color: green;
-}
-
 /* 사진찍기 버튼 */
 .btn-container {
   width: 100%;
