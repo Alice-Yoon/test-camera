@@ -17,39 +17,15 @@ const userMedia = navigator.mediaDevices.getUserMedia({
 ////////////////////////////////////
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   userMedia.then(stream => {
-    console.log("카메라 등장!");
+    // camera: show stream
     video.srcObject = stream;
-
-    // get stream size + set outline & canvas size
+    // outline: set size & show 
     const stream_settings = stream.getVideoTracks()[0].getSettings();
-    const stream_width = stream_settings.width;
-    const stream_height = stream_settings.height;
-    setOutlineSize(stream_width, stream_height);
+    showOutline(stream_settings.width, stream_settings.height);
   })
   .catch(err => {
     console.log(`${err.name} : ${err.message}`)
   })
-}
-
-///////////////////////////
-///// outline size 세팅 ////
-///////////////////////////
-function setOutlineSize(width, height) {
-  if(width && height) {
-    outline.style.display = 'block';
-    outline.style.width = `${width/2}px`;
-    outline.style.height = `${height/1.5}px`;
-  }
-}
-
-///////////////////////////
-///// 찍힌 사진 size 세팅 ////
-///////////////////////////
-function showPhoto() {
-  canvas.style.display = 'block';
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  context.drawImage(video, 0, 0, canvas.width, canvas.height);
 }
 
 //////////////////
@@ -58,14 +34,31 @@ function showPhoto() {
 snapBtn.addEventListener('click', () => {
   /// 1. 찍은 사진 미리보기
   showPhoto();
-  // canvas.style.display = 'block';
-  // canvas.width = video.videoWidth;
-  // canvas.height = video.videoHeight;
-  // context.drawImage(video, 0, 0, canvas.width, canvas.height);
   /// 2.imageFile 추출
   const imageFile = dataURLtoFile(canvas.toDataURL('image/png'), 'imageTest.png');
   console.log("image::", imageFile)
 })
+
+///////////////////////////
+///// outline 화면에 출력 ////
+///////////////////////////
+function showOutline(width, height) {
+  if(width && height) {
+    outline.style.display = 'block';
+    outline.style.width = `${width/2}px`;
+    outline.style.height = `${height/1.5}px`;
+  }
+}
+
+///////////////////////////
+///// 찍힌 사진 화면에 출력 ////
+///////////////////////////
+function showPhoto() {
+  canvas.style.display = 'block';
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+}
 
 //////////////////////////
 ///// rotate outline /////
@@ -82,7 +75,9 @@ rotateBtn.addEventListener('click', () => {
 })
 
 
-// 이미지파일: dataUrl -> File 객체 변환
+////////////////////////////////////////////
+///// 이미지파일: dataUrl -> File 객체 변환 /////
+////////////////////////////////////////////
 function dataURLtoFile (dataurl, fileName) {
   let arr = dataurl.split(','),
      mime = arr[0].match(/:(.*?);/)[1],

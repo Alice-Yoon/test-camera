@@ -24,19 +24,11 @@ h1 {
 }
 
 /* sections */
-.camera-section, 
-.prev-img-section {
-
-}
 .camera-section {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-}
-
-/* 카메라 화면 */
-#camera {
 }
 
 /* 미리보기 사진 */
@@ -47,11 +39,13 @@ h1 {
 
 /* 사진찍기 버튼 */
 .btn-container {
+  width: 100%;
   padding: 30px;
   text-align: center;
 }
 #snapBtn {
-  padding: 7px 10px;
+  width: 100%;
+  padding: 20px;
 }
 
 /* outline */
