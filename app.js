@@ -71,7 +71,7 @@ rotateBtn.addEventListener('click', () => {
     degreeNum = 0;
   }
   outline.style.transform = `rotate(${degree[degreeNum]}deg)`;
-  rotateBtn.innerText = `${degree[degreeNum]}도`;
+  rotateBtn.innerText = `${degree[degreeNum]}°`;
 })
 
 
