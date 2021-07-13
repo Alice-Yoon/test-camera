@@ -63,8 +63,10 @@ function submitPhoto() {
 function showOutline(width, height) {
   if(width && height) {
     outline.style.display = 'block';
-    outline.style.width = `${width/2}px`;
-    outline.style.height = `${height/1.5}px`;
+    outline.style.width = `300px`;
+    outline.style.height = `300px`;
+    // outline.style.width = `${width/2}px`;
+    // outline.style.height = `${height/1.5}px`;
   }
 }
 
