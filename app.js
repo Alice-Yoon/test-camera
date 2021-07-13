@@ -17,9 +17,9 @@ const userMedia = navigator.mediaDevices.getUserMedia({
 ////////////////////////////////////
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   userMedia.then(stream => {
-    // camera: show stream
+    // 1. camera: show stream
     video.srcObject = stream;
-    // outline: set size & show 
+    // 2. outline: set size & show 
     const stream_settings = stream.getVideoTracks()[0].getSettings();
     showOutline(stream_settings.width, stream_settings.height);
   })
