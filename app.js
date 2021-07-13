@@ -18,8 +18,8 @@ const userMedia = navigator.mediaDevices.getUserMedia({
     // },
     // width: 480,
     // height: 360,
-    width: 640,
-    height: 480,
+    // width: 640,
+    // height: 480,
     facingMode: 'environment' // facingMode: 'environment'(후면카메라) / 'user'(정면카메라)
   }
 })
@@ -50,9 +50,6 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     console.log(`${err.name} : ${err.message}`)
   })
 }
-
-console.log("stream_width::", stream_width);
-console.log("stream_height::", stream_height);
 
 /// TEST ///
 function showSizeOnScreen() {
