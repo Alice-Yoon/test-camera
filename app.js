@@ -18,8 +18,8 @@ const userMedia = navigator.mediaDevices.getUserMedia({
     // },
     // width: 480,
     // height: 360,
-    // width: 640,
-    // height: 480,
+    width: 640,
+    height: 480,
     facingMode: 'environment' // facingMode: 'environment'(후면카메라) / 'user'(정면카메라)
   }
 })
@@ -44,6 +44,8 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     setCanvasSize(stream_width, stream_height);
 
     /// TEST ///
+    video.videoWidth = stream_width;
+    video.videoHeight = stream_height;
     showSizeOnScreen();
   })
   .catch(err => {
@@ -53,7 +55,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
 /// TEST ///
 function showSizeOnScreen() {
-  document.querySelector('#width').innerHTML = stream_width;
+  document.querySelector('#width').innerHTML = `stream-${stream_width} / video-${video.videoWidth}`;
   document.querySelector('#height').innerHTML = stream_height;
 }
 
