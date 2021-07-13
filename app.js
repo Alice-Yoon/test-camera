@@ -6,6 +6,7 @@ const rotateBtn = document.querySelector('#rotateBtn');
 const outline = document.querySelector('#outline');
 const imgSection = document.querySelector('.prev-img-section');
 const submitBtn = document.querySelector('#submitBtn');
+const notify = document.querySelector('#notify')
 
 const userMedia = navigator.mediaDevices.getUserMedia({
   audio: false,
@@ -55,6 +56,10 @@ function submitPhoto() {
   const imageFile = dataURLtoFile(canvas.toDataURL('image/png'), 'imageTest.png');
   console.log("image::", imageFile);
   hidePhoto();
+}
+
+function showNotification() {
+  notify.innerHTML = '제출 완료!';
 }
 
 ///////////////////////////
