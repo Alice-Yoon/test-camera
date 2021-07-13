@@ -49,6 +49,7 @@ h1 {
   text-align: center;
 }
 #snapBtn {
+  background-color: #fff;
   width: 100%;
   padding: 20px;
 }
