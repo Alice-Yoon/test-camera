@@ -50,6 +50,7 @@ h1 {
   text-align: center;
 }
 #snapBtn {
+  border-radius: 4px;
   width: 100%;
   padding: 20px;
   font-size: 30px;
