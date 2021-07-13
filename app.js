@@ -75,8 +75,10 @@ function setOutlineSize(width, height) {
 function setCanvasSize(width, height) {
   if(width && height) {
     canvas.style.display = 'block';
-    canvas.width = width;
-    canvas.height = height;
+    canvas.width = height;
+    canvas.height = width;
+    // canvas.width = width;
+    // canvas.height = height;
   }
 }
 
