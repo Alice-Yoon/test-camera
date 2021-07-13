@@ -57,10 +57,16 @@ h1 {
   border: 1px dashed gray;
 }
 
+/* 사진 제출 */
 #submitBtn {
   background-color: #0e36e6;
   color: #fff;
   margin-top: 30px;
+}
+
+#notify {
+  font-weight: bold;
+  color: green;
 }
 
 /* 사진찍기 버튼 */

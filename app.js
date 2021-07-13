@@ -56,10 +56,18 @@ function submitPhoto() {
   const imageFile = dataURLtoFile(canvas.toDataURL('image/png'), 'imageTest.png');
   console.log("image::", imageFile);
   hidePhoto();
+  showNotification();
+  setTimeout(() => {
+    hideNotification();
+  }, 500);
 }
 
 function showNotification() {
   notify.innerHTML = '제출 완료!';
+}
+
+function hideNotification() {
+  notify.innerHTML = '';
 }
 
 ///////////////////////////
