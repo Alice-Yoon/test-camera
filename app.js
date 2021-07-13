@@ -68,11 +68,6 @@ function showOutline(width, height) {
   }
 }
 
-///////////////////////////
-///// 찍힌 사진 화면에 출력 ////
-///////////////////////////
-
-
 //////////////////////////
 ///// rotate outline /////
 //////////////////////////
@@ -86,7 +81,6 @@ rotateBtn.addEventListener('click', () => {
   outline.style.transform = `rotate(${degree[degreeNum]}deg)`;
   rotateBtn.innerText = `${degree[degreeNum]}°`;
 })
-
 
 ////////////////////////////////////////////
 ///// 이미지파일: dataUrl -> File 객체 변환 /////
