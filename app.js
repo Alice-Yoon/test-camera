@@ -42,6 +42,10 @@ function showPhoto() {
   context.drawImage(video, 0, 0, canvas.width, canvas.height);
 }
 
+function hidePhoto() {
+  imgSection.classList.remove('flex');
+}
+
 //////////////////////
 ///// 사진 Submit /////
 //////////////////////
@@ -49,7 +53,8 @@ submitBtn.addEventListener('click', submitPhoto);
 
 function submitPhoto() {
   const imageFile = dataURLtoFile(canvas.toDataURL('image/png'), 'imageTest.png');
-  console.log("image::", imageFile)
+  console.log("image::", imageFile);
+  hidePhoto();
 }
 
 ///////////////////////////
