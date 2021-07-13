@@ -25,7 +25,6 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     const stream_width = stream_settings.width;
     const stream_height = stream_settings.height;
     setOutlineSize(stream_width, stream_height);
-    // setCanvasSize(stream_width, stream_height);
   })
   .catch(err => {
     console.log(`${err.name} : ${err.message}`)
@@ -46,12 +45,11 @@ function setOutlineSize(width, height) {
 ///////////////////////////
 ///// 찍힌 사진 size 세팅 ////
 ///////////////////////////
-function setCanvasSize(width, height) {
-  if(width && height) {
-    canvas.style.display = 'block';
-    canvas.width = width;
-    canvas.height = height;
-  }
+function showPhoto() {
+  canvas.style.display = 'block';
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
 }
 
 //////////////////
@@ -59,10 +57,11 @@ function setCanvasSize(width, height) {
 //////////////////
 snapBtn.addEventListener('click', () => {
   /// 1. 찍은 사진 미리보기
-  canvas.style.display = 'block';
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  showPhoto();
+  // canvas.style.display = 'block';
+  // canvas.width = video.videoWidth;
+  // canvas.height = video.videoHeight;
+  // context.drawImage(video, 0, 0, canvas.width, canvas.height);
   /// 2.imageFile 추출
   const imageFile = dataURLtoFile(canvas.toDataURL('image/png'), 'imageTest.png');
   console.log("image::", imageFile)
