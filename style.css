@@ -42,9 +42,23 @@ h1 {
 }
 
 /* 미리보기 사진 */
+.prev-img-section {
+  display: none;
+}
+
+.prev-img-section.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 #canvas {
   border: 1px dashed gray;
-  display: none;
+}
+
+#submitBtn {
+  margin-top: 30px;
 }
 
 /* 사진찍기 버튼 */

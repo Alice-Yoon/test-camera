@@ -4,6 +4,8 @@ const context = canvas.getContext('2d');
 const snapBtn = document.querySelector('#snapBtn');
 const rotateBtn = document.querySelector('#rotateBtn');
 const outline = document.querySelector('#outline');
+const imgSection = document.querySelector('.prev-img-section');
+const submitBtn = document.querySelector('#submitBtn');
 
 const userMedia = navigator.mediaDevices.getUserMedia({
   audio: false,
@@ -31,13 +33,24 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 //////////////////
 ///// 사진찍기 /////
 //////////////////
-snapBtn.addEventListener('click', () => {
-  /// 1. 찍은 사진 미리보기
-  showPhoto();
-  /// 2.imageFile 추출
+snapBtn.addEventListener('click', showPhoto);
+
+function showPhoto() {
+  imgSection.classList.add('flex');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+}
+
+//////////////////////
+///// 사진 Submit /////
+//////////////////////
+submitBtn.addEventListener('click', submitPhoto);
+
+function submitPhoto() {
   const imageFile = dataURLtoFile(canvas.toDataURL('image/png'), 'imageTest.png');
   console.log("image::", imageFile)
-})
+}
 
 ///////////////////////////
 ///// outline 화면에 출력 ////
@@ -53,12 +66,7 @@ function showOutline(width, height) {
 ///////////////////////////
 ///// 찍힌 사진 화면에 출력 ////
 ///////////////////////////
-function showPhoto() {
-  canvas.style.display = 'block';
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  context.drawImage(video, 0, 0, canvas.width, canvas.height);
-}
+
 
 //////////////////////////
 ///// rotate outline /////
