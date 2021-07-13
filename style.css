@@ -1,6 +1,8 @@
 button {
   -webkit-appearance: none;
   -moz-appearance: none;
+  background-color: #fff;
+  font-size: 14px;
 }
 
 body {
@@ -49,9 +51,8 @@ h1 {
   text-align: center;
 }
 #snapBtn {
-  background-color: #fff;
   width: 100%;
-  padding: 20px;
+  padding: 30px;
 }
 
 /* outline */
