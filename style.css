@@ -93,8 +93,8 @@ h1 {
 .outline {
   display: block;
   border: 2px dashed red;
-  width: 450px;
-  height: 450px;
+  width: 350px;
+  height: 350px;
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
