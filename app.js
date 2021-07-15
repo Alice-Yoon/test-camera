@@ -3,7 +3,7 @@ const canvas = document.querySelector('#canvas');
 const context = canvas.getContext('2d');
 const snapBtn = document.querySelector('#snapBtn');
 const rotateBtn = document.querySelector('#rotateBtn');
-const outline = document.querySelector('.outline');
+const outlines = document.querySelectorAll('.outline');
 const cameraSection = document.querySelector('.camera-section');
 const imgSection = document.querySelector('.prev-img-section');
 const submitBtn = document.querySelector('#submitBtn');
@@ -79,7 +79,7 @@ rotateBtn.addEventListener('click', () => {
   if(degreeNum > 3) {
     degreeNum = 0;
   }
-  outline.style.transform = `rotate(${degree[degreeNum]}deg)`;
+  outlines.forEach(outline => outline.style.transform = `rotate(${degree[degreeNum]}deg)`);
   rotateBtn.innerText = `${degree[degreeNum]}°`;
 })
 
