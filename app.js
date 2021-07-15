@@ -4,6 +4,7 @@ const context = canvas.getContext('2d');
 const snapBtn = document.querySelector('#snapBtn');
 const rotateBtn = document.querySelector('#rotateBtn');
 const outline = document.querySelector('#outline');
+const cameraSection = document.querySelector('.camera-section');
 const imgSection = document.querySelector('.prev-img-section');
 const submitBtn = document.querySelector('#submitBtn');
 
@@ -23,7 +24,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     video.srcObject = stream;
     // 2. outline: set size & show 
     const stream_settings = stream.getVideoTracks()[0].getSettings();
-    showOutline(stream_settings.width, stream_settings.height);
+    showCameraSection(stream_settings.width, stream_settings.height);
   })
   .catch(err => {
     console.log(`${err.name} : ${err.message}`)
@@ -60,11 +61,9 @@ function submitPhoto() {
 ///////////////////////////
 ///// outline 화면에 출력 ////
 ///////////////////////////
-function showOutline(width, height) {
+function showCameraSection(width, height) {
   if(width && height) {
-    outline.style.display = 'block';
-    outline.style.width = `300px`;
-    outline.style.height = `300px`;
+    cameraSection.classList.add('flex');
     // outline.style.width = `${width/2}px`;
     // outline.style.height = `${height/1.5}px`;
   }
