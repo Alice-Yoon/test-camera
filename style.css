@@ -56,6 +56,14 @@ h1 {
   align-items: center;
 }
 
+.prev-img {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 #canvas {
   border: 1px dashed gray;
 }
