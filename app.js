@@ -8,6 +8,8 @@ const cameraSection = document.querySelector('.camera-section');
 const imgSection = document.querySelector('.prev-img-section');
 const submitBtn = document.querySelector('#submitBtn');
 
+import uploadImage from './firebase/upload.js';
+
 const userMedia = navigator.mediaDevices.getUserMedia({
   audio: false,
   video: {
@@ -54,7 +56,7 @@ submitBtn.addEventListener('click', submitPhoto);
 
 function submitPhoto() {
   const imageFile = dataURLtoFile(canvas.toDataURL('image/png'), 'imageTest.png');
-  console.log("image::", imageFile);
+  uploadImage(imageFile);
   hidePhoto();
 }
 
