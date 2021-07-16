@@ -48,6 +48,9 @@ function submitPhoto() {
       toggleLoader(false);
       notify('firebase 이미지 업로드 실패하였습니다.');
     })
+    .finally(() => {
+      toggleLoader(false);
+    })
 }
 
 function hidePhoto() {
