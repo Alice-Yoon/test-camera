@@ -41,7 +41,7 @@ function submitPhoto() {
     .then(() => {
       hidePhoto();
       toggleLoader(false);
-      notify('firebase 이미지 업로드 완료!');
+      notify('이미지 업로드 완료!');
     })
     .catch(() => {
       toggleLoader(false);
