@@ -1,4 +1,5 @@
 import { notify } from '../utils/notify.js';
+import toggleLoader from '../utils/toggleLoader.js';
 const video = document.querySelector('#camera');
 const cameraSection = document.querySelector('.camera-section');
 const rotateBtn = document.querySelector('#rotateBtn');
@@ -9,12 +10,15 @@ const outlines = document.querySelectorAll('.outline');
 ///// turn on camera /////
 //////////////////////////
 function cameraOn(userMedia) {
+  toggleLoader(true);
   userMedia
     .then(stream => {
       setCameraScreen(stream);
       showCameraSection();
+      toggleLoader(false);
     })
     .catch(err => {
+      toggleLoader(false);
       notify('카메라 접근을 실패하였습니다.');
       console.log(`${err.name} : ${err.message}`)
     })
