@@ -1,7 +1,8 @@
 import uploadImage from '../firebase/upload.js';
 import dataURLtoFile from '../utils/dataURLtoFile.js';
-import { notify } from '../utils/notify.js';
 import toggleLoader from '../utils/toggleLoader.js';
+import { notify } from '../utils/notify.js';
+import { scrollToTop } from '../utils/screenScroll.js';
 const imgSection = document.querySelector('.prev-img-section');
 const video = document.querySelector('#camera');
 const canvas = document.querySelector('#canvas');
@@ -33,13 +34,14 @@ function showImgSection() {
 ///// 사진제출 /////
 //////////////////
 function submitPhoto() {
+  scrollToTop();
   toggleLoader(true);
   const imageFile = dataURLtoFile(canvas.toDataURL('image/png'), 'imageTest.png');
   uploadImage(imageFile)
     .then(() => {
+      hidePhoto();
       toggleLoader(false);
       notify('firebase 이미지 업로드 완료!');
-      hidePhoto();
     })
     .catch(() => {
       toggleLoader(false);
