@@ -29,7 +29,7 @@ header {
 .notification {
   display: none;
   color: yellow;
-  font-size: 15px;
+  font-size: 17px;
 }
 
 #width, #height {
