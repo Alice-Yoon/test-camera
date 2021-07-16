@@ -5,7 +5,7 @@ function notify(notification) {
   notifySection.innerText = notification;
   setTimeout(() => {
     removeNoti();
-  }, 3000);
+  }, 2000);
 }
 
 function removeNoti() {
