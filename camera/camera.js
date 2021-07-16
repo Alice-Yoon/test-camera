@@ -15,12 +15,17 @@ function cameraOn(userMedia) {
     .then(stream => {
       setCameraScreen(stream);
       showCameraSection();
-      toggleLoader(false);
+      setTimeout(() => {
+        toggleLoader(false);
+      }, 1000);
     })
     .catch(err => {
       toggleLoader(false);
       notify('카메라 접근을 실패하였습니다.');
       console.log(`${err.name} : ${err.message}`)
+    })
+    .finally(() => {
+      toggleLoader(false);
     })
 }
 
