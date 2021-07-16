@@ -30,9 +30,8 @@ function generateUploadTask(imgName, imgFile) {
 
 function uploadToFirebase(uploadTask) {
   return new Promise((resolve, reject) => {
-    uploadTask.on('state_changed', (snap) => {
-      // let percentage = (snap.bytesTransferred / snap.totalBytes) * 100
-      // this.progress = percentage 
+    uploadTask.on('state_changed', () => {
+      // progress bar 생략
     }, (err) => {
       reject(err);
     }, async () => {
