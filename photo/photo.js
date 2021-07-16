@@ -2,7 +2,7 @@ import uploadImage from '../firebase/upload.js';
 import dataURLtoFile from '../utils/dataURLtoFile.js';
 import toggleLoader from '../utils/toggleLoader.js';
 import { notify } from '../utils/notify.js';
-import { scrollToTop } from '../utils/screenScroll.js';
+import { scrollToTop, scrollToElement } from '../utils/screenScroll.js';
 const imgSection = document.querySelector('.prev-img-section');
 const video = document.querySelector('#camera');
 const canvas = document.querySelector('#canvas');
@@ -15,6 +15,7 @@ function snapPhoto() {
   setCanvasSize();
   drawImage();
   showImgSection();
+  scrollToElement(canvas);
 }
 
 function setCanvasSize() {
