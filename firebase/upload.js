@@ -1,9 +1,19 @@
 import { imageStorage } from './config.js'
 
 export default function uploadImage(imgFile) {
-  const imgName = setImgFileName(imgFile);
-  const uploadTask = generateUploadTask(imgName, imgFile);
-  uploadToFirebase(uploadTask);
+  return new Promise((resolve, reject) => {
+    const imgName = setImgFileName(imgFile);
+    const uploadTask = generateUploadTask(imgName, imgFile);
+    uploadToFirebase(uploadTask)
+      .then((url) => {
+        console.log("firebase 업로드 성공:", url);
+        resolve();
+      })
+      .catch((err) => {
+        console.error("firebase 에러:", err);
+        reject();
+      })
+  })
 }
 
 const storageFolder = 'dental_boda';
@@ -19,17 +29,19 @@ function generateUploadTask(imgName, imgFile) {
 }
 
 function uploadToFirebase(uploadTask) {
-  uploadTask.on('state_changed', (snap) => {
-    // let percentage = (snap.bytesTransferred / snap.totalBytes) * 100
-    // this.progress = percentage 
-  }, (err) => {
-    console.error("firebase err::", err);
-  }, async () => {
-    try {
-      const url = await uploadTask.snapshot.ref.getDownloadURL();
-      console.log("url::", url);
-    } catch (error) {
-      console.error(`url을 가져오는데 실패했습니다. error: ${error}`)
-    }
+  return new Promise((resolve, reject) => {
+    uploadTask.on('state_changed', (snap) => {
+      // let percentage = (snap.bytesTransferred / snap.totalBytes) * 100
+      // this.progress = percentage 
+    }, (err) => {
+      reject(err);
+    }, async () => {
+      try {
+        const url = await uploadTask.snapshot.ref.getDownloadURL();
+        resolve(url);
+      } catch (err) {
+        reject(err);
+      }
+    })
   })
 }

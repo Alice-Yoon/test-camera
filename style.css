@@ -18,8 +18,17 @@ body {
   color: #fff;
 }
 
-h1 {
+header {
   margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.notification {
+  display: none;
+  color: yellow;
 }
 
 #width, #height {
@@ -99,4 +108,39 @@ h1 {
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
   position: absolute;
+}
+
+/* Loading */
+.loader {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.loader.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  border: 3px solid #fff;
+  border-top: 3px solid black;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: loader-spin 0.9s linear infinite;
+}
+
+@keyframes loader-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
