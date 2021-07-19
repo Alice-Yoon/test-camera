@@ -31,6 +31,14 @@ function showImgSection() {
   imgSection.classList.add('flex');
 }
 
+/////////////////
+///// 재촬영 /////
+////////////////
+function retakePhoto() {
+  hidePhoto();
+  scrollToTop();
+}
+
 //////////////////
 ///// 사진제출 /////
 //////////////////
@@ -59,5 +67,6 @@ function hidePhoto() {
 
 export {
   snapPhoto,
+  retakePhoto,
   submitPhoto
 }

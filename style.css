@@ -79,11 +79,25 @@ header {
   border: 1px dashed gray;
 }
 
-/* 사진 제출 */
+/* 재촬영 & 사진 제출 */
+.buttons {
+  width: 100%;
+  display: flex;
+  margin-top: 30px;
+}
+
+.buttons button {
+  color: #fff;
+}
+
+#retakeBtn {
+  background-color: crimson;
+  margin-right: 10px;
+}
+
 #submitBtn {
   background-color: #0e36e6;
-  color: #fff;
-  margin-top: 30px;
+  margin-right: 0;
 }
 
 /* 사진찍기 버튼 */
