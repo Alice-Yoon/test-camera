@@ -1,11 +1,12 @@
 // Firebase configuration
 var firebaseConfig = {
-  apiKey: "AIzaSyB2Wm7IULgs_QtwYki4-c_WjNniK0gf0GU", 
-  authDomain: "moai-66cf2.firebaseapp.com", 
-  projectId: "moai-66cf2", 
-  storageBucket: "moai-66cf2.appspot.com", 
-  messagingSenderId: "232421288988", 
-  appId: "1:232421288988:android:f700b8c2c028a714b603d9" 
+  apiKey: "AIzaSyDlZ6xt9Tz6XLh7uQxMVTjEEN7Xxga1vp8",
+  authDomain: "dental-boda.firebaseapp.com",
+  projectId: "dental-boda",
+  storageBucket: "dental-boda.appspot.com",
+  messagingSenderId: "489874140146",
+  appId: "1:489874140146:web:1a146208fee70a77acd96b",
+  measurementId: "G-02WN3EW4T3"
 };
 
 // Initialize Firebase
