@@ -38,6 +38,7 @@ header {
 
 /* 전체 container */
 .container {
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,6 +47,7 @@ header {
 
 /* sections */
 .camera-section {
+  border: 1px solid blue;
   display: none;
 }
 .camera-section.flex {
