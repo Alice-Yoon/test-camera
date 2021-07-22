@@ -4,6 +4,7 @@ import { snapPhoto, retakePhoto, submitPhoto } from './photo/photo.js';
 const userMedia = navigator.mediaDevices.getUserMedia({
   audio: false,
   video: {
+    width: 1080,
     facingMode: 'environment' // facingMode: 'environment'(후면카메라) / 'user'(정면카메라)
   }
 })
