@@ -5,6 +5,7 @@ const userMedia = navigator.mediaDevices.getUserMedia({
   audio: false,
   video: {
     width: 1080,
+    height: 768,
     facingMode: 'environment' // facingMode: 'environment'(후면카메라) / 'user'(정면카메라)
   }
 })
