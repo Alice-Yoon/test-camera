@@ -16,7 +16,7 @@ export default function uploadImage(imgFile) {
   })
 }
 
-const storageFolder = 'dental_boda';
+const storageFolder = 'dental-boda-web';
 
 function setImgFileName(imgFile) {
   const todayMilli = Date.now();
