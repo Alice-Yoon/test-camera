@@ -4,7 +4,7 @@ import { snapPhoto, retakePhoto, submitPhoto } from './photo/photo.js';
 const userMedia = navigator.mediaDevices.getUserMedia({
   audio: false,
   video: {
-    TEST //
+    // TEST //
     width: 1080,
     height: 768,
     /////////
